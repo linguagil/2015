@@ -4,3 +4,5 @@ _site/
 /.bundle
 # Ignore bundle gems.
 vendor/bundle
+# Ignore vagrant
+.vagrant
