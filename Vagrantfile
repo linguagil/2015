@@ -9,5 +9,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.provision :shell, :path => "provision_packages.sh"
     config.vm.provision :shell, :path => "provision-install-rvm.sh",  :args => "stable"
-    config.vm.provision :shell, :path => "provision-install-ruby.sh", :args => "2.1.2 jekyl"
+    config.vm.provision :shell, :path => "provision-install-ruby.sh", :args => "2.1.2 jekyll"
 end
