@@ -1,0 +1,12 @@
+# Site settings
+title: LinguÁgil 2015
+email: linguagil@linguagil.com.br
+description: "Evento LinguÁgil, o maior evento sobre linguagens de programação e metodologias ágeis de Salvador/BA."
+baseurl: ""
+url: "http://2015.linguagil.com.br"
+twitter_username: linguagil
+github_username:  linguagil
+
+# Build settings
+markdown: kramdown
+permalink: pretty

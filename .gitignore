@@ -1,1 +1,6 @@
 _site/
+
+# Ignore bundler config.
+/.bundle
+# Ignore bundle gems.
+vendor/bundle
