@@ -267,6 +267,23 @@ module.exports = function (grunt) {
       dist: ['<%= yeoman.dist %>/*.html']
     },
 
+    rsync: {
+      options: {
+        args: ['--verbose'],
+        exclude: ['.git*','*.scss','node_modules'],
+        recursive: true
+      },
+      prod: {
+        options: {
+          src: '<%= yeoman.dist %>/',
+          dest: '/home/linguagil/linguagil.com.br/',
+          host: 'linguagil@linguagil.com.br',
+          syncDestIgnoreExcl: true
+        }
+      }
+    },
+
+
     // Allow the use of non-minsafe AngularJS files. Automatically makes it
     // minsafe compatible so Uglify does not destroy the ng references
     ngAnnotate: {
@@ -374,7 +391,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('modifyImageLinkInScript', 'Task for replace image link in script file.', function(filename, imageTarget) {
     var fs = require('fs'),
-        SCRIPTS_DIST_DIR = 'dist/js',
+        SCRIPTS_DIST_DIR = 'dist/scripts',
         IMAGE_DIST_DIR = 'dist/images',
         oldestImage = imageTarget
     ;
@@ -382,6 +399,32 @@ module.exports = function (grunt) {
     fs.readdirSync(SCRIPTS_DIST_DIR).forEach(function(file) {
       if ( file.indexOf(filename) !== (-1) ) {
         filename = SCRIPTS_DIST_DIR+'/'+file;
+      }
+    });
+
+    fs.readdirSync(IMAGE_DIST_DIR).forEach(function(file) {
+      if ( file.indexOf(oldestImage) !== (-1) ) {
+        imageTarget = file;
+      }
+    });
+
+    var data = fs.readFileSync(filename, 'utf8');
+    data = data.replace(new RegExp(oldestImage, 'g'), imageTarget);
+
+    fs.writeFileSync(filename, data, 'utf8');
+
+  });
+
+  grunt.registerTask('modifyImageLinkInStyles', 'Task for replace image link in stylesheet file.', function(filename, imageTarget) {
+    var fs = require('fs'),
+        STYLES_DIST_DIR = 'dist/styles',
+        IMAGE_DIST_DIR = 'dist/images',
+        oldestImage = imageTarget
+    ;
+
+    fs.readdirSync(STYLES_DIST_DIR).forEach(function(file) {
+      if ( file.indexOf(filename) !== (-1) ) {
+        filename = STYLES_DIST_DIR+'/'+file;
       }
     });
 
@@ -442,7 +485,8 @@ module.exports = function (grunt) {
     'rev',
     'usemin',
     'htmlmin',
-    'modifyImageLinkInScript:scripts.js:pin.png'
+    'modifyImageLinkInScript:scripts.js:pin.png',
+    'modifyImageLinkInStyles:main.css:home-background.jpg'
   ]);
 
   grunt.registerTask('default', [
@@ -450,4 +494,17 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('travis', [
+    'bower-install',
+    'jshint',
+    'build',
+    'htmllint:dist'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'travis',
+    'rsync:prod'
+  ]);
+
 };
