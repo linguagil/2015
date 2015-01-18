@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "homepage": "https://github.com/linguagil/landing-page",
   "authors": [
-    "Mauricio Vieira <mauricio@linguagil.com.br>",
+    "Mauricio Vieira <mauricio.vieira@gmail.com>",
     "willmendesneto <willmendesneto@gmail.com>"
   ],
   "description": "Website - Linguagil 2015",
@@ -11,7 +11,7 @@
     "technology",
     "development",
     "agile",
-    "network"
+    "networking"
   ],
   "license": "MIT",
   "private": true,

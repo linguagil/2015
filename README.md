@@ -1,8 +1,7 @@
-landing-page
+LinguÁgil 2015
 ============
-[![Build Status](https://drone.io/github.com/linguagil/landing-page/status.png)](https://drone.io/github.com/linguagil/landing-page/latest)
-[![Build Status](https://travis-ci.org/linguagil/landing-page.png)](https://travis-ci.org/linguagil/landing-page)
-
+[![Build Status](https://drone.io/github.com/linguagil/2015.linguagil.com.br/status.png)](https://drone.io/github.com/linguagil/2015.linguagil.com.br/latest)
+[![Build Status](https://travis-ci.org/linguagil/2015.linguagil.com.br.png)](https://travis-ci.org/linguagil/2015.linguagil.com.br)
 
 Landing Page do LinguÁgil.
 
@@ -30,7 +29,7 @@ bower install
 
 ### Outros pacotes
 
-Instale o resto que está descrito no package.json. 
+Instale o resto que está descrito no package.json.
 
 ```
 npm install
