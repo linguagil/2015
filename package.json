@@ -47,6 +47,6 @@
     "prestart": "npm install",
     "postinstall": "bower install",
     "start": "grunt serve",
-    "test": "grunt test"
+    "test": "grunt travis --verbose"
   }
 }
