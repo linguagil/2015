@@ -1,6 +1,6 @@
 {
   "name": "Linguagil2014",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "repository": {
     "type": "git",
     "url": "http://github.com/linguagil/2015.linguagil.com.br.git"
@@ -48,5 +48,6 @@
     "postinstall": "bower install",
     "start": "grunt serve",
     "test": "grunt travis --verbose"
+    "deploy": "grunt deploy"
   }
 }
