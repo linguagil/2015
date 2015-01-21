@@ -21,6 +21,7 @@
     "bootstrap": "~3.0.3",
     "fastclick": "~0.6.10",
     "gmaps": "~0.4.9",
-    "mediaelement": "~2.13.1"
+    "mediaelement": "~2.13.1",
+    "jquery-unveil": "git@github.com:luis-almeida/unveil.git#master"
   }
 }

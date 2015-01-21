@@ -36,13 +36,16 @@ module.exports = function (grunt) {
           livereload: true
         }
       },
-      jsTest: {
-        files: [
-          'test/spec/{,*/}*.js',
-          '<%= yeoman.app %>/scripts/{,*/}*.js'
-        ],
-        tasks: ['newer:jshint:test', 'karma']
-      },
+      // jsTest: {
+      //   files: [
+      //     'test/spec/{,*/}*.js',
+      //     '<%= yeoman.app %>/scripts/{,*/}*.js'
+      //   ],
+      //   tasks: [
+      //     'newer:jshint:test',
+      //     'karma'
+      //   ]
+      // },
       //compass: {
       //  files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
       //  tasks: ['compass:server', 'autoprefixer']
@@ -378,12 +381,12 @@ module.exports = function (grunt) {
     // },
 
     // Test settings
-    karma: {
-      unit: {
-        configFile: 'karma.conf.js',
-        singleRun: true
-      }
-    }
+    // karma: {
+    //   unit: {
+    //     configFile: 'karma.conf.js',
+    //     singleRun: true
+    //   }
+    // }
   });
 
   grunt.loadNpmTasks('grunt-html');
