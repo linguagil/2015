@@ -444,6 +444,33 @@ module.exports = function (grunt) {
 
   });
 
+  grunt.registerTask('modifyImageLinkInHtml', 'Task for replace image link in html files.', function(filename, folder, imageTarget) {
+    folder = '/' + folder || '';
+    var fs = require('fs'),
+        HTML_DIST_DIR = 'dist/',
+        IMAGE_DIST_DIR = 'dist/images' + folder,
+        oldestImage = imageTarget
+    ;
+
+    fs.readdirSync(HTML_DIST_DIR).forEach(function(file) {
+      if ( file.indexOf(filename) !== (-1) ) {
+        filename = HTML_DIST_DIR+'/'+file;
+      }
+    });
+
+    fs.readdirSync(IMAGE_DIST_DIR).forEach(function(file) {
+      if ( file.indexOf(oldestImage) !== (-1) ) {
+        imageTarget = file;
+      }
+    });
+
+    var data = fs.readFileSync(filename, 'utf8');
+    data = data.replace(new RegExp(oldestImage, 'g'), imageTarget);
+
+    fs.writeFileSync(filename, data, 'utf8');
+
+  });
+
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -489,7 +516,12 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin',
     'modifyImageLinkInScript:scripts.js:pin.png',
-    'modifyImageLinkInStyles:main.css:home-background.jpg'
+    'modifyImageLinkInStyles:main.css:home-background.jpg',
+    'modifyImageLinkInHtml:index.html:sponsors:background.gif',
+    'modifyImageLinkInHtml:programacao.html:sponsors:background.gif',
+    'modifyImageLinkInHtml:videos.html:sponsors:background.gif',
+    'modifyImageLinkInHtml:codigo-de-conduta.html:sponsors:background.gif',
+    'modifyImageLinkInHtml:eventos-anteriores.html:sponsors:background.gif'
   ]);
 
   grunt.registerTask('default', [
