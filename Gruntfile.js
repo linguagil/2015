@@ -392,10 +392,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-html');
   grunt.loadNpmTasks('grunt-rsync');
 
-  grunt.registerTask('modifyImageLinkInScript', 'Task for replace image link in script file.', function(filename, imageTarget) {
+  grunt.registerTask('modifyImageLinkInScript', 'Task for replace image link in script file.', function(filename, imageTarget, folder) {
+    folder = (typeof folder !== 'undefined') ? '/' + folder : '';
     var fs = require('fs'),
         SCRIPTS_DIST_DIR = 'dist/scripts',
-        IMAGE_DIST_DIR = 'dist/images',
+        IMAGE_DIST_DIR = 'dist/images' + folder,
         oldestImage = imageTarget
     ;
 
@@ -445,7 +446,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('modifyImageLinkInHtml', 'Task for replace image link in html files.', function(filename, folder, imageTarget) {
-    folder = '/' + folder || '';
+    folder = (typeof folder !== 'undefined') ? '/' + folder : '';
     var fs = require('fs'),
         HTML_DIST_DIR = 'dist/',
         IMAGE_DIST_DIR = 'dist/images' + folder,
@@ -516,6 +517,15 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin',
     'modifyImageLinkInScript:scripts.js:pin.png',
+    'modifyImageLinkInScript:scripts.js:wilson-mendes.jpeg:talks',
+    'modifyImageLinkInScript:scripts.js:marlon-carvalho.jpeg:talks',
+    'modifyImageLinkInScript:scripts.js:luciano-borges.jpg:talks',
+    'modifyImageLinkInScript:scripts.js:a-confirmar.jpg:talks',
+    'modifyImageLinkInScript:scripts.js:paulo-ortins.jpg:talks',
+    'modifyImageLinkInScript:scripts.js:otavio-santana.jpg:talks',
+    'modifyImageLinkInScript:scripts.js:fernando-masanori.jpg:talks',
+    'modifyImageLinkInScript:scripts.js:osni-oliveira.jpg:talks',
+
     'modifyImageLinkInStyles:main.css:home-background.jpg',
     'modifyImageLinkInHtml:index.html:sponsors:background.gif',
     'modifyImageLinkInHtml:programacao.html:sponsors:background.gif',
