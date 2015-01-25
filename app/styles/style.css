@@ -794,3 +794,9 @@ a.font-white, a.font-white:hover{
     font-weight: 700;
     text-indent: 28px;
 }
+.open-modal {
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+  float: right;
+}
