@@ -5,11 +5,11 @@
    * Getting application base url
    * @return {string} application base url
    */
-  function baseUrl(){
-    var l = window.location;
-    return l.protocol + '//' + l.host + '/';
-  }
-  var BASE_URL = baseUrl();
+  // function baseUrl(){
+  //   var l = window.location;
+  //   return l.protocol + '//' + l.host + '/';
+  // }
+  // var BASE_URL = baseUrl();
 
   /**
    *  Calling fastclick in application
@@ -226,44 +226,10 @@
     $('.load-image-async').unveil();
   }
 
-  function loadModalContent( options ) {
-    //  Inserting loading modal in Page
-    insertLoadingModalInPage();
-    var $modal = $('<div id="modal-content" class="modal hide fade"></div>').load( options.targetUrl, function(){
-      //  Removing loading modal in Page
-      removeLoadingModalInPage();
-      $modal.modal({ keyboard: false })
-        .on('shown', function(){
-          $(this).find('.cancel-send-email-from-friend').click(function(){
-            $('button.close').trigger('click');
-          }).end().find('button.send-email-from-friend').click(function(){
-            $('button.close').trigger('click');
-          });
-        });
-    });
-  }
-
-  if( $('.open-modal')[0] ) {
-    $('.open-modal').click( function(){
-      loadModalContent({
-        targetUrl: BASE_URL + $(this).data('target-url')
-      });
-    });
-  }
-
-  function insertLoadingModalInPage(){
-    $('body').append('<div id="modal-loading-content" class="modal_overlay modal-backdrop"><div class="preloader_box modal grad_rd_box"><h2 class="preloader_title">Aguarde...</h2><div class="progress progress-striped active span2"><div class="bar" style="width: 100%;"></div></div></div></div>');
-  }
-
-  function removeLoadingModalInPage(){
-    $('#modal-loading-content').remove();
-  }
-
   $window.load( function(){
     if ( $window.width() <= 600 ) {
       $('.video-target').trigger('click');
     }
   });
-
 
 })(jQuery);
