@@ -279,7 +279,7 @@ module.exports = function (grunt) {
       prod: {
         options: {
           src: '<%= yeoman.dist %>/',
-          dest: '/home/linguagil/2015.linguagil.com.br/',
+          dest: '/home/linguagil/linguagil.com.br/',
           host: 'linguagil@linguagil.com.br',
           syncDestIgnoreExcl: true
         }
@@ -499,7 +499,17 @@ module.exports = function (grunt) {
     //'connect:test'
   ]);
 
-  grunt.registerTask('build', [
+  // var pages = [
+  //   'index.html',
+  //   'programacao.html',
+  //   'videos.html',
+  //   'codigo-de-conduta.html',
+  //   'eventos-anteriores.html'
+  // ];
+
+  // var pagesLength = pages.length;
+
+  var gruntBuildTasks = [
     'jshint:all',
     //'htmllint:app',
     'clean:dist',
@@ -526,14 +536,22 @@ module.exports = function (grunt) {
     'modifyImageLinkInScript:scripts.js:fernando-masanori.jpg:talks',
     'modifyImageLinkInScript:scripts.js:osni-oliveira.jpg:talks',
 
-    'modifyImageLinkInStyles:main.css:home-background.jpg',
+    'modifyImageLinkInStyles:main.css:home-background.jpg'
+  ];
 
-    'modifyImageLinkInHtml:index.html:sponsors:background.gif',
-    'modifyImageLinkInHtml:programacao.html:sponsors:background.gif',
-    'modifyImageLinkInHtml:videos.html:sponsors:background.gif',
-    'modifyImageLinkInHtml:codigo-de-conduta.html:sponsors:background.gif',
-    'modifyImageLinkInHtml:eventos-anteriores.html:sponsors:background.gif'
-  ]);
+  // for(var i = 0; pagesLength > i; i++) {
+
+  //   gruntBuildTasks.push('modifyImageLinkInHtml:'+pages[i]+':sponsors:background.gif');
+
+  //   gruntBuildTasks.push('modifyImageLinkInHtml:'+pages[i]+':sponsors:be-a-sponsor.png');
+  //   gruntBuildTasks.push('modifyImageLinkInHtml:'+pages[i]+':sponsors:novatec.png');
+  //   gruntBuildTasks.push('modifyImageLinkInHtml:'+pages[i]+':sponsors:he-mobile.png');
+  //   gruntBuildTasks.push('modifyImageLinkInHtml:'+pages[i]+':sponsors:oncedev.png');
+  //   gruntBuildTasks.push('modifyImageLinkInHtml:'+pages[i]+':sponsors:senai-ads.png');
+  //   gruntBuildTasks.push('modifyImageLinkInHtml:'+pages[i]+':sponsors:senai.png');
+  // }
+
+  grunt.registerTask('build', gruntBuildTasks);
 
   grunt.registerTask('default', [
     'newer:jshint',

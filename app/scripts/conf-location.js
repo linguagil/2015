@@ -132,26 +132,10 @@
             border: 'solid 1px #717B87',
             background: '#fff'
           },
-          content: 'Local do evento dias 13 e 14 de março',
+          content: 'Local do evento dias 11 a 14 de março',
           events: {
             click: function(){
               map.setCenter(mapOpts.destination.lat, mapOpts.destination.lng);
-            },
-          }
-        });
-
-        map.addControl({
-          position: 'top_right',
-          style: {
-            margin: '5px',
-            padding: '1px 6px',
-            border: 'solid 1px #717B87',
-            background: '#fff'
-          },
-          content: 'Local do evento dia 15 de março',
-          events: {
-            click: function(){
-              map.setCenter(mapOpts.destinationTalks.lat, mapOpts.destinationTalks.lng);
             },
           }
         });
