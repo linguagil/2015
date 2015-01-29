@@ -527,6 +527,7 @@ module.exports = function (grunt) {
     'modifyImageLinkInScript:scripts.js:osni-oliveira.jpg:talks',
 
     'modifyImageLinkInStyles:main.css:home-background.jpg',
+
     'modifyImageLinkInHtml:index.html:sponsors:background.gif',
     'modifyImageLinkInHtml:programacao.html:sponsors:background.gif',
     'modifyImageLinkInHtml:videos.html:sponsors:background.gif',
