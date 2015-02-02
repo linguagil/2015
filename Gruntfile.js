@@ -538,6 +538,9 @@ module.exports = function (grunt) {
     'modifyImageLinkInScript:scripts.js:isabela-goncalves.jpg:talks',
     'modifyImageLinkInScript:scripts.js:robson-peixoto.png:talks',
     'modifyImageLinkInScript:scripts.js:rodrigo-ribeiro.png:talks',
+    'modifyImageLinkInScript:scripts.js:rafael-gomes.jpg:talks',
+    'modifyImageLinkInScript:scripts.js:leandro-coelho.jpg:talks',
+    'modifyImageLinkInScript:scripts.js:leonardo-soares.jpg:talks',
 
     'modifyImageLinkInStyles:main.css:home-background.jpg'
   ];
