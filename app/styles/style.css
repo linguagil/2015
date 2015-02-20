@@ -540,14 +540,10 @@ a.font-white, a.font-white:hover{
   margin-bottom: 20px;
 }
 
-#registration {
-  color: #fff;
-}
-
 #iframe-inscricao{
   border: none !important;
   width: 100% !important;
-  height: 1170px;
+  height: 1280px;
   overflow-x: hidden;
 }
 
